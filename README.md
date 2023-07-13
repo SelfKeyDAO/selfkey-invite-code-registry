@@ -1,6 +1,8 @@
-# Selfkey.org Invite Code Registry Contract
+# Selfkey Invite Code Registry Contract
 
 ## Overview
+
+Deployed on sidechain (Polygon)
 
 ## Development
 
