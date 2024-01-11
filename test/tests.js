@@ -119,19 +119,81 @@ describe("SelfKey Invite Registry Tests", function () {
             const _from = contract.address;
             const _to = addr2.address;
             const _amount = amount;
-            const _scope = 'selfkey.invite.reward';
+            const _scope = 'selfkey:invite';
             const _signer = signer.address;
             const _timestamp = await time.latest();
-            const _param = ethers.utils.hexZeroPad(0, 32);
+            const _param = ethers.utils.formatBytes32String(code);
 
             let hash = await authContract.getMessageHash(_from, _to, _amount, _scope, _param, _timestamp);
             let signature = await signer.signMessage(ethers.utils.arrayify(hash));
             expect(await authContract.verify(_from, _to, _amount, _scope, _param, _timestamp, signer.address, signature)).to.equal(true);
 
-            await expect(contract.connect(addr2).selfRegisterInviteCodeUsed(_to, code, _amount, _param, _timestamp, signer.address, signature, { from: addr2.address }))
+            await expect(contract.connect(addr2).selfRegisterInviteCodeUsed(_to, _amount, _param, _timestamp, _signer, signature, { from: addr2.address }))
                 .to.emit(contract, 'InvitationCodeUsed').withArgs(addr2.address, addr1.address, code);
 
             expect(await contract.isInviteUsed(addr2.address)).to.equal(true);
+
+            // Check if amount was added to the mintable registry
+            expect(await mintableContract.balanceOf(addr2.address)).to.equal(amount);
+            expect(await mintableContract.balanceOf(addr1.address)).to.equal(0);
+
+            // check if amount was added to the unclaimed registry
+            expect(await unclaimedContract.balanceOf(addr2.address)).to.equal(0);
+            expect(await unclaimedContract.balanceOf(addr1.address)).to.equal(amount);
+        });
+
+        it("Authorized user cannot self-register twice", async function() {
+            let code = 'Code123';
+            let code2 = 'Code1234';
+            let amount = 100;
+
+            expect(await contract.isInviteCodeValid(code)).to.equal(false);
+            await expect(contract.connect(signer).registerInviteCode(addr1.address, code, { from: signer.address }))
+                .to.emit(contract, 'InvitationCodeAdded').withArgs(addr1.address, code);
+
+            await expect(contract.connect(signer).registerInviteCode(addr2.address, code2, { from: signer.address }))
+                .to.emit(contract, 'InvitationCodeAdded').withArgs(addr2.address, code2);
+
+
+            let _from = contract.address;
+            let _to = addr2.address;
+            let _amount = amount;
+            let _scope = 'selfkey:invite';
+            let _signer = signer.address;
+            let _timestamp = await time.latest();
+            let _param = ethers.utils.formatBytes32String(code);
+
+            let hash = await authContract.getMessageHash(_from, _to, _amount, _scope, _param, _timestamp);
+            let signature = await signer.signMessage(ethers.utils.arrayify(hash));
+            expect(await authContract.verify(_from, _to, _amount, _scope, _param, _timestamp, signer.address, signature)).to.equal(true);
+
+            await expect(contract.connect(addr2).selfRegisterInviteCodeUsed(_to, _amount, _param, _timestamp, _signer, signature, { from: addr2.address }))
+                .to.emit(contract, 'InvitationCodeUsed').withArgs(addr2.address, addr1.address, code);
+
+            expect(await contract.isInviteUsed(addr2.address)).to.equal(true);
+
+            // Check if amount was added to the mintable registry
+            expect(await mintableContract.balanceOf(addr2.address)).to.equal(amount);
+            expect(await mintableContract.balanceOf(addr1.address)).to.equal(0);
+
+            // check if amount was added to the unclaimed registry
+            expect(await unclaimedContract.balanceOf(addr2.address)).to.equal(0);
+            expect(await unclaimedContract.balanceOf(addr1.address)).to.equal(amount);
+
+            _from = contract.address;
+            _to = addr2.address;
+            _amount = amount;
+            _scope = 'selfkey:invite';
+            _signer = signer.address;
+            _timestamp = await time.latest();
+            _param = ethers.utils.formatBytes32String(code);
+
+            hash = await authContract.getMessageHash(_from, _to, _amount, _scope, _param, _timestamp);
+            signature = await signer.signMessage(ethers.utils.arrayify(hash));
+            expect(await authContract.verify(_from, _to, _amount, _scope, _param, _timestamp, signer.address, signature)).to.equal(true);
+
+            await expect(contract.connect(addr2).selfRegisterInviteCodeUsed(_to, _amount, _param, _timestamp, _signer, signature, { from: addr2.address }))
+                .to.be.revertedWith('Already redeemed invite code');
 
             // Check if amount was added to the mintable registry
             expect(await mintableContract.balanceOf(addr2.address)).to.equal(amount);
@@ -162,13 +224,13 @@ describe("SelfKey Invite Registry Tests", function () {
             const _scope = 'selfkey.invite.rewards';
             const _signer = signer.address;
             const _timestamp = await time.latest();
-            const _param = ethers.utils.hexZeroPad(0, 32);
+            const _param = ethers.utils.formatBytes32String(code);
 
             let hash = await authContract.getMessageHash(_from, _to, _amount, _scope, _param, _timestamp);
             let signature = await signer.signMessage(ethers.utils.arrayify(hash));
-            expect(await authContract.verify(_from, _to, _amount, _scope, _param, _timestamp, signer.address, signature)).to.equal(true);
+            expect(await authContract.verify(_from, _to, _amount, _scope, _param, _timestamp, _signer, signature)).to.equal(true);
 
-            await expect(contract.connect(addr2).selfRegisterInviteCodeUsed(_to, code, _amount, _param, _timestamp, signer.address, signature, { from: addr2.address }))
+            await expect(contract.connect(addr2).selfRegisterInviteCodeUsed(_to, _amount, _param, _timestamp, _signer, signature, { from: addr2.address }))
                 .to.be.revertedWith('Verification failed');
         });
     });

@@ -1,0 +1,685 @@
+{
+  "manifestVersion": "3.2",
+  "admin": {
+    "address": "0xdC45E52a05E2Dde941eE4b02AA16C6d32E451ac7"
+  },
+  "proxies": [
+    {
+      "address": "0x4D29D29AAb8030174e876cfbB32455cDAfef6e66",
+      "kind": "transparent"
+    }
+  ],
+  "impls": {
+    "007ee352b4151fd9ec95ca55dfe722c6b8ce7a5271780be65e88074735b39b01": {
+      "address": "0x19411CcF0fb81640e1a4207e503dbB5144E5D692",
+      "layout": {
+        "solcVersion": "0.8.19",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:63",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:68"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ContextUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:40"
+          },
+          {
+            "label": "_owner",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_address",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:22"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "52",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:94"
+          },
+          {
+            "label": "authorizedSigner",
+            "offset": 0,
+            "slot": "101",
+            "type": "t_address",
+            "contract": "SelfkeyInviteCodeRegistryV1",
+            "src": "contracts/upgrades/SelfkeyInviteCodeRegistryV1.sol:19"
+          },
+          {
+            "label": "_userInvitationInfo",
+            "offset": 0,
+            "slot": "102",
+            "type": "t_mapping(t_address,t_struct(UserInvitationInfo)3696_storage)",
+            "contract": "SelfkeyInviteCodeRegistryV1",
+            "src": "contracts/upgrades/SelfkeyInviteCodeRegistryV1.sol:20"
+          },
+          {
+            "label": "_userInvitationCode",
+            "offset": 0,
+            "slot": "103",
+            "type": "t_mapping(t_string_memory_ptr,t_address)",
+            "contract": "SelfkeyInviteCodeRegistryV1",
+            "src": "contracts/upgrades/SelfkeyInviteCodeRegistryV1.sol:21"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]",
+            "numberOfBytes": "1568"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]",
+            "numberOfBytes": "1600"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_mapping(t_address,t_struct(UserInvitationInfo)3696_storage)": {
+            "label": "mapping(address => struct UserInvitationInfo)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_string_memory_ptr,t_address)": {
+            "label": "mapping(string => address)",
+            "numberOfBytes": "32"
+          },
+          "t_string_memory_ptr": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_struct(UserInvitationInfo)3696_storage": {
+            "label": "struct UserInvitationInfo",
+            "members": [
+              {
+                "label": "user",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "code",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "used",
+                "type": "t_bool",
+                "offset": 0,
+                "slot": "2"
+              }
+            ],
+            "numberOfBytes": "96"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        },
+        "namespaces": {}
+      }
+    },
+    "da7007215f4d946d89f13fe0dc54915954737be2e81c1c80fd82f865bdef26e2": {
+      "address": "0x5Ef39BB5941934042e16b7b30aB98F5Ce1B11145",
+      "txHash": "0x2d76c7c07df41b5346b198e8c5705e42bae5a829098809768ad38875548e0a28",
+      "layout": {
+        "solcVersion": "0.8.19",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:63",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:68"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ContextUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:40"
+          },
+          {
+            "label": "_owner",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_address",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:22"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "52",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:94"
+          },
+          {
+            "label": "authorizedSigner",
+            "offset": 0,
+            "slot": "101",
+            "type": "t_address",
+            "contract": "SelfkeyInviteCodeRegistry",
+            "src": "contracts/SelfkeyInviteCodeRegistry.sol:22"
+          },
+          {
+            "label": "_userInvitationInfo",
+            "offset": 0,
+            "slot": "102",
+            "type": "t_mapping(t_address,t_struct(UserInvitationInfo)696_storage)",
+            "contract": "SelfkeyInviteCodeRegistry",
+            "src": "contracts/SelfkeyInviteCodeRegistry.sol:23"
+          },
+          {
+            "label": "_userInvitationCode",
+            "offset": 0,
+            "slot": "103",
+            "type": "t_mapping(t_string_memory_ptr,t_address)",
+            "contract": "SelfkeyInviteCodeRegistry",
+            "src": "contracts/SelfkeyInviteCodeRegistry.sol:24"
+          },
+          {
+            "label": "mintableRegistryContract",
+            "offset": 0,
+            "slot": "104",
+            "type": "t_contract(ISelfkeyMintableRegistry)1439",
+            "contract": "SelfkeyInviteCodeRegistry",
+            "src": "contracts/SelfkeyInviteCodeRegistry.sol:26"
+          },
+          {
+            "label": "unclaimedRegistryContract",
+            "offset": 0,
+            "slot": "105",
+            "type": "t_contract(ISelfkeyUnclaimedRegistry)1620",
+            "contract": "SelfkeyInviteCodeRegistry",
+            "src": "contracts/SelfkeyInviteCodeRegistry.sol:27"
+          },
+          {
+            "label": "authorizationContract",
+            "offset": 0,
+            "slot": "106",
+            "type": "t_contract(ISelfkeyIdAuthorization)1339",
+            "contract": "SelfkeyInviteCodeRegistry",
+            "src": "contracts/SelfkeyInviteCodeRegistry.sol:28"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]",
+            "numberOfBytes": "1568"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]",
+            "numberOfBytes": "1600"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_contract(ISelfkeyIdAuthorization)1339": {
+            "label": "contract ISelfkeyIdAuthorization",
+            "numberOfBytes": "20"
+          },
+          "t_contract(ISelfkeyMintableRegistry)1439": {
+            "label": "contract ISelfkeyMintableRegistry",
+            "numberOfBytes": "20"
+          },
+          "t_contract(ISelfkeyUnclaimedRegistry)1620": {
+            "label": "contract ISelfkeyUnclaimedRegistry",
+            "numberOfBytes": "20"
+          },
+          "t_mapping(t_address,t_struct(UserInvitationInfo)696_storage)": {
+            "label": "mapping(address => struct UserInvitationInfo)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_string_memory_ptr,t_address)": {
+            "label": "mapping(string => address)",
+            "numberOfBytes": "32"
+          },
+          "t_string_memory_ptr": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_struct(UserInvitationInfo)696_storage": {
+            "label": "struct UserInvitationInfo",
+            "members": [
+              {
+                "label": "user",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "code",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "used",
+                "type": "t_bool",
+                "offset": 0,
+                "slot": "2"
+              }
+            ],
+            "numberOfBytes": "96"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        },
+        "namespaces": {}
+      }
+    },
+    "293a2b5e6f5aff9a352fdc68cd157940b879d7021b3deb95f20aa7c7da8ecca8": {
+      "address": "0xf0a2B846Df1880C4951d25008A67dF46bBB4112E",
+      "txHash": "0x1a4b7b4209483ed42c8d11c28a42116ffa666b59b154d66d2d8939a8d451c0b5",
+      "layout": {
+        "solcVersion": "0.8.19",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:63",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:68"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ContextUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:40"
+          },
+          {
+            "label": "_owner",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_address",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:22"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "52",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:94"
+          },
+          {
+            "label": "authorizedSigner",
+            "offset": 0,
+            "slot": "101",
+            "type": "t_address",
+            "contract": "SelfkeyInviteCodeRegistry",
+            "src": "contracts/SelfkeyInviteCodeRegistry.sol:22"
+          },
+          {
+            "label": "_userInvitationInfo",
+            "offset": 0,
+            "slot": "102",
+            "type": "t_mapping(t_address,t_struct(UserInvitationInfo)696_storage)",
+            "contract": "SelfkeyInviteCodeRegistry",
+            "src": "contracts/SelfkeyInviteCodeRegistry.sol:23"
+          },
+          {
+            "label": "_userInvitationCode",
+            "offset": 0,
+            "slot": "103",
+            "type": "t_mapping(t_string_memory_ptr,t_address)",
+            "contract": "SelfkeyInviteCodeRegistry",
+            "src": "contracts/SelfkeyInviteCodeRegistry.sol:24"
+          },
+          {
+            "label": "mintableRegistryContract",
+            "offset": 0,
+            "slot": "104",
+            "type": "t_contract(ISelfkeyMintableRegistry)1438",
+            "contract": "SelfkeyInviteCodeRegistry",
+            "src": "contracts/SelfkeyInviteCodeRegistry.sol:26"
+          },
+          {
+            "label": "unclaimedRegistryContract",
+            "offset": 0,
+            "slot": "105",
+            "type": "t_contract(ISelfkeyUnclaimedRegistry)1619",
+            "contract": "SelfkeyInviteCodeRegistry",
+            "src": "contracts/SelfkeyInviteCodeRegistry.sol:27"
+          },
+          {
+            "label": "authorizationContract",
+            "offset": 0,
+            "slot": "106",
+            "type": "t_contract(ISelfkeyIdAuthorization)1338",
+            "contract": "SelfkeyInviteCodeRegistry",
+            "src": "contracts/SelfkeyInviteCodeRegistry.sol:28"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]",
+            "numberOfBytes": "1568"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]",
+            "numberOfBytes": "1600"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_contract(ISelfkeyIdAuthorization)1338": {
+            "label": "contract ISelfkeyIdAuthorization",
+            "numberOfBytes": "20"
+          },
+          "t_contract(ISelfkeyMintableRegistry)1438": {
+            "label": "contract ISelfkeyMintableRegistry",
+            "numberOfBytes": "20"
+          },
+          "t_contract(ISelfkeyUnclaimedRegistry)1619": {
+            "label": "contract ISelfkeyUnclaimedRegistry",
+            "numberOfBytes": "20"
+          },
+          "t_mapping(t_address,t_struct(UserInvitationInfo)696_storage)": {
+            "label": "mapping(address => struct UserInvitationInfo)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_string_memory_ptr,t_address)": {
+            "label": "mapping(string => address)",
+            "numberOfBytes": "32"
+          },
+          "t_string_memory_ptr": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_struct(UserInvitationInfo)696_storage": {
+            "label": "struct UserInvitationInfo",
+            "members": [
+              {
+                "label": "user",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "code",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "used",
+                "type": "t_bool",
+                "offset": 0,
+                "slot": "2"
+              }
+            ],
+            "numberOfBytes": "96"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        },
+        "namespaces": {}
+      }
+    },
+    "dd2932f0c960bf09bedd84047262bc7fcaaa7086115bc19ef2a654794eadb3db": {
+      "address": "0xE740fBbf70922c2526Ed355e7b1D0c10b71A5F23",
+      "txHash": "0xbb48c3dc928e1afd0a0e2b470502d72dc87b5b025f3a28e13253b60297753dbe",
+      "layout": {
+        "solcVersion": "0.8.19",
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:63",
+            "retypedFrom": "bool"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol:68"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ContextUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol:40"
+          },
+          {
+            "label": "_owner",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_address",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:22"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "52",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol:94"
+          },
+          {
+            "label": "authorizedSigner",
+            "offset": 0,
+            "slot": "101",
+            "type": "t_address",
+            "contract": "SelfkeyInviteCodeRegistry",
+            "src": "contracts/SelfkeyInviteCodeRegistry.sol:22"
+          },
+          {
+            "label": "_userInvitationInfo",
+            "offset": 0,
+            "slot": "102",
+            "type": "t_mapping(t_address,t_struct(UserInvitationInfo)696_storage)",
+            "contract": "SelfkeyInviteCodeRegistry",
+            "src": "contracts/SelfkeyInviteCodeRegistry.sol:23"
+          },
+          {
+            "label": "_userInvitationCode",
+            "offset": 0,
+            "slot": "103",
+            "type": "t_mapping(t_string_memory_ptr,t_address)",
+            "contract": "SelfkeyInviteCodeRegistry",
+            "src": "contracts/SelfkeyInviteCodeRegistry.sol:24"
+          },
+          {
+            "label": "mintableRegistryContract",
+            "offset": 0,
+            "slot": "104",
+            "type": "t_contract(ISelfkeyMintableRegistry)1507",
+            "contract": "SelfkeyInviteCodeRegistry",
+            "src": "contracts/SelfkeyInviteCodeRegistry.sol:26"
+          },
+          {
+            "label": "unclaimedRegistryContract",
+            "offset": 0,
+            "slot": "105",
+            "type": "t_contract(ISelfkeyUnclaimedRegistry)1688",
+            "contract": "SelfkeyInviteCodeRegistry",
+            "src": "contracts/SelfkeyInviteCodeRegistry.sol:27"
+          },
+          {
+            "label": "authorizationContract",
+            "offset": 0,
+            "slot": "106",
+            "type": "t_contract(ISelfkeyIdAuthorization)1407",
+            "contract": "SelfkeyInviteCodeRegistry",
+            "src": "contracts/SelfkeyInviteCodeRegistry.sol:28"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]",
+            "numberOfBytes": "1568"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]",
+            "numberOfBytes": "1600"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_contract(ISelfkeyIdAuthorization)1407": {
+            "label": "contract ISelfkeyIdAuthorization",
+            "numberOfBytes": "20"
+          },
+          "t_contract(ISelfkeyMintableRegistry)1507": {
+            "label": "contract ISelfkeyMintableRegistry",
+            "numberOfBytes": "20"
+          },
+          "t_contract(ISelfkeyUnclaimedRegistry)1688": {
+            "label": "contract ISelfkeyUnclaimedRegistry",
+            "numberOfBytes": "20"
+          },
+          "t_mapping(t_address,t_struct(UserInvitationInfo)696_storage)": {
+            "label": "mapping(address => struct UserInvitationInfo)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_string_memory_ptr,t_address)": {
+            "label": "mapping(string => address)",
+            "numberOfBytes": "32"
+          },
+          "t_string_memory_ptr": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_string_storage": {
+            "label": "string",
+            "numberOfBytes": "32"
+          },
+          "t_struct(UserInvitationInfo)696_storage": {
+            "label": "struct UserInvitationInfo",
+            "members": [
+              {
+                "label": "user",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "code",
+                "type": "t_string_storage",
+                "offset": 0,
+                "slot": "1"
+              },
+              {
+                "label": "used",
+                "type": "t_bool",
+                "offset": 0,
+                "slot": "2"
+              }
+            ],
+            "numberOfBytes": "96"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        },
+        "namespaces": {}
+      }
+    }
+  }
+}

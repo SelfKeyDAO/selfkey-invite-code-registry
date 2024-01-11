@@ -128,7 +128,9 @@ contract SelfkeyInviteCodeRegistry is Initializable, OwnableUpgradeable {
         emit InvitationCodeUsed(_address, _inviter, _code);
     }
 
-    function selfRegisterInviteCodeUsed(address _address, string memory _code, uint _amount, bytes32 _param, uint _timestamp, address _signer, bytes memory signature) external {
+    function selfRegisterInviteCodeUsed(address _address, uint _amount, bytes32 _param, uint _timestamp, address _signer, bytes memory signature) external {
+        // Convert param to string
+        string memory _code = bytes32ToString(_param);
         UserInvitationInfo memory existingOwner = _userInvitationInfo[_address];
 
         require(existingOwner.used == false, "Already redeemed invite code");
@@ -138,10 +140,10 @@ contract SelfkeyInviteCodeRegistry is Initializable, OwnableUpgradeable {
         require(_inviter != address(0), "Invalid code");
 
         // Verify payload
-        authorizationContract.authorize(address(this), _address, _amount, 'selfkey.invite.reward', _param, _timestamp, _signer, signature);
+        authorizationContract.authorize(address(this), _address, _amount, 'selfkey:invite', _param, _timestamp, _signer, signature);
 
         // Add to the mintable Registry
-        mintableRegistryContract.register(_address, _amount, 'selfkey.invite.reward', 1, _signer);
+        mintableRegistryContract.register(_address, _amount, 'selfkey:invite', 1, _signer);
 
         // Add to the unclaimed Registry
         unclaimedRegistryContract.registerReward(_inviter, _amount, 'Invite Reward', _signer, _signer);
@@ -149,5 +151,17 @@ contract SelfkeyInviteCodeRegistry is Initializable, OwnableUpgradeable {
         _userInvitationInfo[_address].used = true;
 
         emit InvitationCodeUsed(_address, _inviter, _code);
+    }
+
+    function bytes32ToString(bytes32 _bytes32) internal pure returns (string memory) {
+        uint8 i = 0;
+        while(i < 32 && _bytes32[i] != 0) {
+            i++;
+        }
+        bytes memory bytesArray = new bytes(i);
+        for (i = 0; i < 32 && _bytes32[i] != 0; i++) {
+            bytesArray[i] = _bytes32[i];
+        }
+        return string(bytesArray);
     }
 }
