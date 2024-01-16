@@ -4,13 +4,16 @@ async function main() {
     const [deployer] = await ethers.getSigners();
     console.log("Deploying contracts with the account:", deployer.address);
 
+    // Polygon address
     const proxyAddress = "0x85ef414575E256dfAA768f86f592465E47d24095";
 
-    const contractFactory = await hre.ethers.getContractFactory("SelfkeyInviteCodeRegistry");
-    const contract = await upgrades.upgradeProxy(proxyAddress, contractFactory, { timeout: 500000 });
-    await contract.deployed();
+    const contractFactory = await hre.ethers.getContractFactory("SelfkeyInviteCodeRegistryV1");
+    console.log('Implementation address: ' + await upgrades.erc1967.getImplementationAddress(proxyAddress));
+    console.log('Admin address: ' + await upgrades.erc1967.getAdminAddress(proxyAddress));
 
-    console.log("Deployed contract address:", contract.address);
+    const contract = await upgrades.forceImport(proxyAddress, contractFactory, { kind: 'transparent' });
+
+    console.log("Done", contract);
 
     // INFO: verify contract after deployment
     // npx hardhat verify --network polygon 0x85ef414575E256dfAA768f86f592465E47d24095
